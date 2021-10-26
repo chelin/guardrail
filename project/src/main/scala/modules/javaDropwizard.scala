@@ -6,14 +6,16 @@ import sbt._
 import sbt.Keys._
 
 object javaDropwizard {
-  val ahcVersion             = "2.8.1"
-  val dropwizardVavrVersion  = "1.3.0-4"
-  val dropwizardVersion      = "1.3.29"
-  val javaxAnnotationVersion = "1.3.2"
-  val jaxbApiVersion         = "2.3.1"
-  val jerseyVersion          = "2.25.1"
-  val scalatestVersion       = "3.2.10"
-  val vavrVersion            = "0.10.3"
+  val ahcVersion                = "2.12.3"
+  val dropwizardVavrVersion     = "2.0.24-1"
+  val dropwizardVersion         = "2.0.25"
+  val javaxAnnotationVersion    = "1.3.2"
+  val jaxbApiVersion            = "2.3.1"
+  val jerseyVersion             = "2.25.1"
+  val scalatestVersion          = "3.2.10"
+  val vavrVersion               = "0.10.3"
+  val hibernateCoreVersion      = "5.5.7.Final"
+  val hibernateValidatorVersion = "6.1.7.Final"
 
   val dependencies = Seq(
     "javax.annotation"           %  "javax.annotation-api"   % javaxAnnotationVersion, // for jdk11
@@ -24,9 +26,12 @@ object javaDropwizard {
     "junit"                      %  "junit"                  % "4.13.2"             % Test,
     "nl.jqno.equalsverifier"     %  "equalsverifier"         % "3.8.1"            % Test,
     "com.github.sbt"               %  "junit-interface"        % "0.13.2"             % Test,
+    "org.hibernate"              %  "hibernate-core"         % hibernateCoreVersion,
+    "org.hibernate.validator"    %  "hibernate-validator"    % hibernateValidatorVersion,
+    "com.novocode"               %  "junit-interface"        % "0.11"             % Test,
     "com.github.tomakehurst"     %  "wiremock"               % "2.27.2"           % Test,
     "io.dropwizard"              %  "dropwizard-testing"     % dropwizardVersion  % Test,
-    "org.glassfish.jersey.test-framework.providers" % "jersey-test-framework-provider-grizzly2" % jerseyVersion % Test
+    "org.glassfish.jersey.test-framework.providers" % "jersey-test-framework-provider-grizzly2" % jerseyVersion % Test,
   ) ++ Seq(
     "org.mockito"                %% "mockito-scala"          % "1.16.46"           % Test,
     "org.scala-lang.modules"     %% "scala-java8-compat"     % "1.0.2"            % Test,
